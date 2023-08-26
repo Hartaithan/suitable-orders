@@ -1,4 +1,5 @@
 import { FC, useEffect, useRef } from "react";
+import { useStore } from "../store";
 
 const bw = 400;
 const bh = 400;
@@ -19,19 +20,19 @@ const drawGrid = (context: CanvasRenderingContext2D) => {
   context.stroke();
 };
 
-const initialize = (canvas: HTMLCanvasElement) => {
-  const context = canvas.getContext("2d");
-  if (!context) return;
-  drawGrid(context);
-};
-
 const Background: FC = () => {
   const ref = useRef<HTMLCanvasElement>(null);
+  const [setBackgroundCanvas] = useStore((state) => [
+    state.setBackgroundCanvas,
+  ]);
 
   useEffect(() => {
     if (!ref.current) return;
-    initialize(ref.current);
-  }, []);
+    const context = ref.current.getContext("2d");
+    if (!context) return;
+    drawGrid(context);
+    setBackgroundCanvas(ref.current, context);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <canvas id="background" ref={ref} width={cw} height={ch} />;
 };

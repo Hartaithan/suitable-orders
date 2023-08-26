@@ -37,3 +37,19 @@ body {
   justify-content: center;
   background: #1e1e1e;
 }
+
+button {
+  min-height: 30px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background: #121212;
+  color: #fff;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2a2a2a;
+}
