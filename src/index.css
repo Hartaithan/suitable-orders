@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #ffffff;
 }
 
 html,
@@ -13,10 +14,26 @@ body,
 
 body {
   font-family: "Inter", sans-serif;
+  background: #121212;
 }
 
 #root {
   display: flex;
+}
+
+#content {
+  flex: 1;
+  display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+}
+
+#menu {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: #1e1e1e;
 }

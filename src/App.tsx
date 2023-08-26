@@ -1,7 +1,14 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
+import Content from "./components/Content";
+import Menu from "./components/Menu";
 
 const App: FC = () => {
-  return <h1>Hello World!</h1>;
+  return (
+    <Fragment>
+      <Content />
+      <Menu />
+    </Fragment>
+  );
 };
 
 export default App;
