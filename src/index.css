@@ -37,6 +37,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background: #1e1e1e;
+  gap: 12px;
 }
 
 button {

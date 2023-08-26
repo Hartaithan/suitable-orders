@@ -2,10 +2,13 @@ import { FC } from "react";
 import { useStore } from "../store";
 
 const Menu: FC = () => {
-  const [backgroundCanvas, backgroundContext] = useStore((state) => [
-    state.backgroundCanvas,
-    state.backgroundContext,
-  ]);
+  const [backgroundCanvas, backgroundContext, setCanvasParams] = useStore(
+    (state) => [
+      state.backgroundCanvas,
+      state.backgroundContext,
+      state.setCanvasParams,
+    ],
+  );
 
   const clearBackgroundGrid = () => {
     if (!backgroundCanvas || !backgroundContext) return;
@@ -17,9 +20,14 @@ const Menu: FC = () => {
     );
   };
 
+  const handleCanvasParamsSubmit = () => {
+    setCanvasParams();
+  };
+
   return (
     <aside id="menu">
       <button onClick={clearBackgroundGrid}>Clear background grid</button>
+      <button onClick={handleCanvasParamsSubmit}>Submit canvas params</button>
     </aside>
   );
 };
