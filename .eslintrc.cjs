@@ -15,5 +15,17 @@ module.exports = {
       "warn",
       { allowConstantExport: true },
     ],
+    "no-console": ["error", { allow: ["info", "error"] }],
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: [
+          {
+            name: "react",
+            importNames: ["default"],
+          },
+        ],
+      },
+    ],
   },
 };
